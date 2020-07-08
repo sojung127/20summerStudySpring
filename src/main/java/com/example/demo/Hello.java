@@ -1,3 +1,5 @@
+package com.example.demo;
+
 public class Hello {
     String name;
     Printer printer;
@@ -15,7 +17,7 @@ public class Hello {
     }
 
     public String sayHello(){
-        return "Hello "+name;
+        return "com.example.demo.Hello "+name;
     }
 
     public void print(){
