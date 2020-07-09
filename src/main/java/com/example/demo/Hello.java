@@ -1,13 +1,18 @@
 package com.example.demo;
 
+import java.util.List;
+
 public class Hello {
     String name;
     Printer printer;
-
+    List<String> names;
     public Hello(){
 
     }
-
+    public void setNames(List<String> list){
+        this.names=list;
+    }
+    public List<String> getNames(){ return names; }
     public void setName(String name){
         this.name=name;
     }
@@ -17,7 +22,7 @@ public class Hello {
     }
 
     public String sayHello(){
-        return "com.example.demo.Hello "+name;
+        return "Hello "+name;
     }
 
     public void print(){

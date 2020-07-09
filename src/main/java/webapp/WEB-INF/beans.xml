@@ -6,8 +6,16 @@
     <bean id="hello" class="com.example.demo.Hello">
         <property name="name" value="Spring" />
         <property name="printer" ref="printer" />
+        <property name="names">
+            <list>
+                <value>Spring</value>
+                <value>IoC</value>
+                <value>DI</value>
+            </list>
+        </property>
     </bean>
 
     <bean id="printer" class="com.example.demo.StringPrinter" />
     <bean id="consoleprinter" class="com.example.demo.ConsolePrinter" />
+
 </beans>

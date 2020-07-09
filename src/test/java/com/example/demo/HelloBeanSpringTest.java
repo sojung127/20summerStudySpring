@@ -7,6 +7,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
@@ -21,11 +23,11 @@ public class HelloBeanSpringTest {
         Hello hello = (Hello) context.getBean("hello");
         assertEquals("Hello Spring",hello.sayHello());
         hello.print();
-        assertEquals(context.getBean("printer").toString(),"Hello Spring");
 
-        Hello hello1 = context.getBean("hello",Hello.class);
-        hello1.print();
-        assertSame(hello,hello1);
-
+        assertEquals(3,hello.getNames().size());
+        List<String> list= hello.getNames();
+        for (String value : list) {
+            System.out.println(value);
+        }
     }
 }
