@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "file:src/main/java/webapp/WEB-INF/beans.xml")
+@ContextConfiguration(locations = "file:src/main/java/webapp/WEB-INF/annot.xml")
 public class HelloBeanSpringTest {
     @Autowired
     private ApplicationContext context;
@@ -25,10 +25,7 @@ public class HelloBeanSpringTest {
         assertEquals("Hello Spring",hello.sayHello());
         hello.print();
 
-        assertEquals(3,hello.getNames().size());
-        List<String> list= hello.getNames();
-        for (String value : list) {
-            System.out.println(value);
-        }
+        Printer printer = context.getBean("stringPrinter",Printer.class);
+        assertEquals("Hello Spring",printer.toString());
     }
 }
