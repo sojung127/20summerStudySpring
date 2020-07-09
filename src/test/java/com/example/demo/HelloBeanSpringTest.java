@@ -21,6 +21,7 @@ public class HelloBeanSpringTest {
     @Test
     public void bean1(){
         Hello hello = (Hello) context.getBean("hello");
+        System.out.println("getbean complete");
         assertEquals("Hello Spring",hello.sayHello());
         hello.print();
 
