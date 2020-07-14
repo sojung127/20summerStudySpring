@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration SYSTEM "http://mybatis.org/dtd/mybatis-3-config.dtd" PUBLIC "-//mybatis.org//DTD Config 3.0//EN" >
+<configuration>
+    <typeAliases>
+        <typeAlias alias="User" type="myspring.user.vo.UserVo" />
+    </typeAliases>
+</configuration>
