@@ -25,6 +25,10 @@
 <!--    </aop:config>-->
 <!--    <bean id="performanceTraceAdvice" class="myspring.aop.xml.PerformanceTraceAdvice" />-->
 <!--    SalSessionFactoryBean 설정-->
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="myspring.user.dao.UserMapper" />
+        <property name="sqlSessionTemplate" ref="sqlSession" />
+    </bean>
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="file:src/main/java/config/SqlMapConfig.xml" />

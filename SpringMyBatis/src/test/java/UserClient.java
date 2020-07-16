@@ -32,13 +32,12 @@ public class UserClient {
     }
     @Test
     public void getUserTest(){
-        service=context.getBean(UserService.class);
         UserVO user = service.getUser("gildong");
         System.out.println("User Information: "+user);
 
 //        UserVO user = service.getUser("gildong");
         System.out.println("User info: "+user);
-        assertEquals("홍길동",user.getName());
+        assertEquals("연아2",user.getName());
     }
 
     @Test
