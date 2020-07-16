@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+
+       https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:component-scan base-package="myspring.user,myspring.aop.annot" />
+    <context:property-placeholder location="file:src/main/java/config/value.properties" />
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="driverClass" value="${db.driverClass}" />
+        <property name="url" value="${db.url}" />
+        <property name="username" value="${db.username}" />
+        <property name="password" value="${db.password}" />
+    </bean>
+    <aop:aspectj-autoproxy />
+<!--    <aop:config>-->
+<!--        <aop:aspect id="traceAspect" ref="performanceTraceAdvice">-->
+<!--            <aop:around pointcut="execution(public * myspring.user.service..*(..))"-->
+<!--                        method="trace" />-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+<!--    <bean id="performanceTraceAdvice" class="myspring.aop.xml.PerformanceTraceAdvice" />-->
+<!--    SalSessionFactoryBean 설정-->
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="myspring.user.dao.UserMapper" />
+        <property name="sqlSessionTemplate" ref="sqlSession" />
+    </bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="file:src/main/java/config/SqlMapConfig.xml" />
+        <property name="mapperLocations">
+            <list>
+                <value>file:src/main/java/config/User.xml</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref="sqlSessionFactory" />
+    </bean>
+</beans>
