@@ -6,6 +6,14 @@ public class UserVO {
     private String gender;
     private String city;
 
+    public UserVO() {}
+    public UserVO(String userId, String name, String gender, String city) {
+        this.userId = userId;
+        this.name = name;
+        this.gender = gender;
+        this.city = city;
+    }
+
     public String getCity() {
         return city;
     }
@@ -36,5 +44,10 @@ public class UserVO {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String toString() {
+        return "User [userId=" + userId + ", name=" + name + ", gender="
+                + gender + ", city=" + city + "]";
     }
 }

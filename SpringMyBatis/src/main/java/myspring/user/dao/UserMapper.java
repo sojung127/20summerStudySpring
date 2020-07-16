@@ -9,5 +9,5 @@ public interface UserMapper {
     List<UserVO> selectUserList();
     void insertUser(UserVO userVO);
     void updateUser(UserVO userVO);
-    void deleteUser(UserVO userVO);
+    void deleteUser(String id);
 }
