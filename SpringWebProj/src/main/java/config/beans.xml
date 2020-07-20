@@ -17,14 +17,6 @@
         <property name="password" value="${db.password}" />
     </bean>
     <aop:aspectj-autoproxy />
-<!--    <aop:config>-->
-<!--        <aop:aspect id="traceAspect" ref="performanceTraceAdvice">-->
-<!--            <aop:around pointcut="execution(public * myspring.user.service..*(..))"-->
-<!--                        method="trace" />-->
-<!--        </aop:aspect>-->
-<!--    </aop:config>-->
-<!--    <bean id="performanceTraceAdvice" class="myspring.aop.xml.PerformanceTraceAdvice" />-->
-<!--    SalSessionFactoryBean 설정-->
     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="myspring.user.dao.UserMapper" />
         <property name="sqlSessionTemplate" ref="sqlSession" />
