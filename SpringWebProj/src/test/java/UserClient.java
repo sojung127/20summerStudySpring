@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "file:src/main/java/config/beans.xml")
+@ContextConfiguration(locations = "file:../../../web/WEB-INF/beans.xml")
 public class UserClient {
     @Autowired
     ApplicationContext context;
